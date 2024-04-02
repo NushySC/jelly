@@ -46,11 +46,10 @@
 .beans {
     display: flex;
     flex-direction: column;
-    width: 85%;
-    margin: 32px;
+    margin: 82px 32px;
     &__list {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, auto));
+        grid-template-columns: repeat(auto-fill, minmax(280px, auto));
         column-gap: 24px;
         row-gap: 72px;
     }
@@ -66,10 +65,11 @@
 }
 .main {
     display: flex;
+    flex-direction: column;
     width: 100%;
 }
 .side {
     width: 15%;
     min-height: 100vh;
-    background-color: #2c2c2c;
+    background-color: #d31875;
 }
