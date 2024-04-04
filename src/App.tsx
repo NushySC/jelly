@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./styles/App.scss";
-import Side from "./components/Side";
 import Beans from "./components/Beans";
 import { ReactComponent as CloseIcon } from "./img/close.svg";
+import Side from "./components/Side";
 
 interface BeanItem {
   beanId: number;
@@ -73,7 +73,7 @@ const App: React.FC = () => {
   const handleColorGroupClick = (color: string) => {
     setColors(color);
   };
-console.log(jellys)
+// console.log(jellys)
 
   const filteredJellys = colors
     ? jellys.filter((jelly) => jelly.colorGroup.includes(colors))
