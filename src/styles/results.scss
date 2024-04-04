@@ -4,25 +4,29 @@
     font-size: 1rem;
     font-weight: 400;
     gap: 24px;
-    margin-left: 24px;
+    width: 100%;
+    padding: 24px 32px;
     margin-bottom: 32px;
-
+    border-bottom: 1px solid grey;
+  
     span {
-        font-weight: 700;
+      font-weight: 700;
     }
     &__clear {
-        padding: 4px 12px;
-        border: 1px solid grey;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        cursor: pointer;
+      padding: 4px 12px;
+      border: 1px solid grey;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      background-color: #d31875;
+      color: white;
     }
     &__icon {
-        width: 18px;
-        height: 18px;
+      width: 18px;
+      height: 18px;
     }
-}
+  }

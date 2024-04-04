@@ -77,7 +77,6 @@ const App: React.FC = () => {
       <Side handleSearch={handleSearch} handleSortChange={handleSortChange} />
       <div className="main">
         {searchQuery && (
-          <div className="results">
             <div className="results">
               <p>
                 Your search on <span>{searchQuery}</span> has provided{" "}
@@ -88,7 +87,6 @@ const App: React.FC = () => {
                 <CloseIcon className="results__icon" />
               </button>
             </div>
-          </div>
         )}
         <div className="beans">
           <Beans
