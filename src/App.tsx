@@ -15,6 +15,7 @@ interface BeanItem {
   glutenFree: boolean;
   sugarFree: boolean;
   backgroundColor: string;
+  kosher: boolean;
 }
 
 const App: React.FC = () => {
@@ -72,6 +73,7 @@ const App: React.FC = () => {
   const handleColorGroupClick = (color: string) => {
     setColors(color);
   };
+console.log(jellys)
 
   const filteredJellys = colors
     ? jellys.filter((jelly) => jelly.colorGroup.includes(colors))

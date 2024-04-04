@@ -18,6 +18,8 @@ interface BeanItem {
     glutenFree: boolean;
     sugarFree: boolean;
     backgroundColor: string;
+    kosher: boolean;
+
 }
 
 const Beans: React.FC<Props> = ({ searchQuery, sortQuery, jellys }) => {

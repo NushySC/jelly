@@ -12,6 +12,7 @@ interface Beany {
   glutenFree: boolean;
   sugarFree: boolean;
   backgroundColor: string;
+  kosher: boolean;
 }
 
 interface Props {

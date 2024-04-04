@@ -20,14 +20,6 @@
     border-radius: 40px;
     border: 6px solid black;
   }
-  p {
-    margin-bottom: 16px;
-
-    &:first-of-type {
-      text-align: center;
-      font-size: 24px;
-    }
-  }
 
   &__body {
     position: relative;
@@ -54,10 +46,38 @@
     text-align: center;
     margin-bottom: 24px;
   }
+
   &__description {
-    font-size: 16px;
-    line-height: 120%;
     margin-bottom: 16px;
+    &:first-of-type {
+      text-align: center;
+      font-size: 24px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    margin-inline: 100px;
+    margin-block: 32px;
+  }
+  &__icon {
+    width: 56px;
+    fill: white;
+    margin-bottom: 24px;
+  }
+  &__category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 25%;
+    &.off {
+      color: #a1a1a1;
+      svg {
+        fill: #a1a1a1;
+      }
+    }
   }
   &__characteristics {
     display: flex;
