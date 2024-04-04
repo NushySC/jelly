@@ -46,10 +46,10 @@
 .beans {
     display: flex;
     flex-direction: column;
-    margin: 82px 32px;
+    padding: 82px 32px;
     &__list {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, auto));
+        grid-template-columns: repeat(auto-fill, minmax(250px, auto));
         column-gap: 24px;
         row-gap: 72px;
     }

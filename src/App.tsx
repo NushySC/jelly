@@ -20,9 +20,33 @@ interface BeanItem {
 const App: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [sortQuery, setSortQuery] = useState<string>("");
-  const [jellys, setJellys] = useState<BeanItem[] | null>(null); // State for storing fetched data
+  const [jellys, setJellys] = useState<BeanItem[] | null>(null);
 
-  useEffect(() => {
+
+  // State to store the selected ingredient
+  // const [selectedIngredient, setSelectedIngredient] = useState<string | null>(null);
+  const [selectedIngredient, setSelectedIngredient] = useState<string | null>(null);
+
+
+  // Flatten the ingredients from all jellys into a single array
+  const allIngredients = jellys?.flatMap(jelly => jelly.ingredients) ?? [];
+
+
+  // Remove duplicates to get unique ingredients
+  const uniqueIngredients = Array.from(new Set(allIngredients));
+
+  // Function to filter jellys based on the selected ingredient
+  const handleIngredientClick = (ingredient: string) => {
+    setSelectedIngredient(ingredient);
+  };
+
+  // Filter jellys based on the selected ingredient, or show all jellys if no ingredient is selected
+  const filteredJellys = selectedIngredient
+  ? jellys?.filter(jelly => jelly.ingredients.includes(selectedIngredient)) ?? []
+  : jellys ?? [];
+
+
+    useEffect(() => {
     const fetchBeans = async () => {
       try {
         const response = await fetch(
@@ -64,37 +88,51 @@ const App: React.FC = () => {
   if (jellys === null) {
     return <div>Loading...</div>;
   }
+  
 
-  // console.log(jellys[1].flavorName)
+  // console.log(jellys[1].ingredients)
   const filteredProducts = jellys.filter((jelly) =>
-    jelly.flavorName.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+    jelly.flavorName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    jelly.ingredients.some((ingredient) =>
+      ingredient.toLowerCase().includes(searchQuery.toLowerCase()))
+    )
 
   const lengthResults = filteredProducts.length;
 
   return (
     <div className="app">
+
       <Side handleSearch={handleSearch} handleSortChange={handleSortChange} />
       <div className="main">
         {searchQuery && (
           <div className="results">
-            <div className="results">
-              <p>
-                Your search on <span>{searchQuery}</span> has provided{" "}
-                {lengthResults} results
-              </p>
-              <button className="results__clear" onClick={clearQuery}>
-                Clear Search
-                <CloseIcon className="results__icon" />
-              </button>
-            </div>
+            <p>
+              Your search on <span>{searchQuery}</span> has provided{" "}
+              {lengthResults} results
+            </p>
+            <button className="results__clear" onClick={clearQuery}>
+              Clear Search
+              <CloseIcon className="results__icon" />
+            </button>
           </div>
         )}
         <div className="beans">
+        <div className="tags">
+        {/* Render tags for unique ingredients */}
+        {uniqueIngredients.map(ingredient => (
+          <span
+            key={ingredient}
+            className={`tag ${selectedIngredient === ingredient ? 'selected' : ''}`}
+            onClick={() => handleIngredientClick(ingredient)}
+          >
+            {ingredient}
+          </span>
+        ))}
+      </div>
           <Beans
             searchQuery={searchQuery}
             sortQuery={sortQuery}
-            jellys={jellys}
+            jellys={filteredJellys}
           />
         </div>
       </div>

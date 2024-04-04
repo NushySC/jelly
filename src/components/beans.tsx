@@ -26,7 +26,9 @@ const Beans: React.FC<Props> = ({ searchQuery, sortQuery, jellys }) => {
     }
 
     const filteredProducts = jellys.filter((bean) =>
-        bean.flavorName.toLowerCase().includes(searchQuery.toLowerCase())
+        bean.flavorName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        bean.ingredients.some((ingredient) =>
+          ingredient.toLowerCase().includes(searchQuery.toLowerCase()))
     );
 
     const sortedProducts = [...filteredProducts].sort((a, b) => {
