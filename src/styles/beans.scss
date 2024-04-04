@@ -1,0 +1,20 @@
+.beans {
+    display: flex;
+    flex-direction: column;
+    padding: 82px 32px;
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, auto));
+        column-gap: 24px;
+        row-gap: 72px;
+    }
+    &__filter {
+        margin-bottom: 72px;
+        height: 40px;
+        border-radius: 12px;
+        padding-inline: 16px;
+        font-size: 22px;
+        border: 6px solid #2c2c2c;
+        font-family: 'Josefin Sans', sans-serif;
+    }
+}

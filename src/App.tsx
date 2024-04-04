@@ -27,7 +27,7 @@ const App: React.FC = () => {
     const fetchBeans = async () => {
       try {
         const response = await fetch(
-          `https://jellybellywikiapi.onrender.com/api/beans?pageSize=50`,
+          `https://jellybellywikiapi.onrender.com/api/beans?pageSize=80`,
           {
             method: "GET",
             headers: {
