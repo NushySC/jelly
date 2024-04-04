@@ -1,5 +1,5 @@
 import React from 'react';
-import Bean from './Bean';
+import Jelly from './Jelly';
 
 interface Props {
     searchQuery: string;
@@ -43,7 +43,7 @@ const Beans: React.FC<Props> = ({ searchQuery, sortQuery, jellys }) => {
     return (
         <div className="beans__list">
             {sortedProducts.map((bean, index) => (
-                <Bean key={index} bean={bean} />
+                <Jelly key={index} bean={bean} />
             ))}
         </div>
     );

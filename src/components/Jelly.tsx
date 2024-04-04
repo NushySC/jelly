@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import BeanDetail from "./BeanDetail";
+import JellyDetail from "./JellyDetail";
 
 interface Beany {
   beanId: number;
@@ -36,7 +36,7 @@ const Bean: React.FC<Props> = ({ bean }) => {
       <button className="bean__button" onClick={handleDetail}>
         Know more
       </button>
-      {showDetail && <BeanDetail bean={bean} setShowDetail={setShowDetail} />}
+      {showDetail && <JellyDetail bean={bean} setShowDetail={setShowDetail} />}
     </div>
   );
 };

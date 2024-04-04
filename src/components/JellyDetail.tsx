@@ -24,7 +24,7 @@ interface Props {
   setShowDetail: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const BeanDetail: React.FC<Props> = ({ bean, setShowDetail }) => {
+const JellyDetail: React.FC<Props> = ({ bean, setShowDetail }) => {
   const handleCloseDetail = () => {
     setShowDetail(false);
   };
@@ -97,4 +97,4 @@ const BeanDetail: React.FC<Props> = ({ bean, setShowDetail }) => {
   );
 };
 
-export default BeanDetail;
+export default JellyDetail;
