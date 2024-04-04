@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Bean from './Bean';
 
 interface Props {
     searchQuery: string;
     sortQuery: string;
+    jellys: BeanItem[] | null; // Receive jellys as props
 }
 
 interface BeanItem {
@@ -19,36 +20,7 @@ interface BeanItem {
     backgroundColor: string;
 }
 
-const Beans: React.FC<Props> = ({ searchQuery, sortQuery }) => {
-    const [jellys, setJellys] = useState<BeanItem[] | null>(null);
-
-    useEffect(() => {
-        const fetchBeans = async () => {
-            try {
-                const response = await fetch(
-                    `https://jellybellywikiapi.onrender.com/api/beans?pageSize=50`,
-                    {
-                        method: "GET",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                    }
-                );
-
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-
-                const data = await response.json();
-                setJellys(data.items);
-            } catch (error) {
-                console.error("Error:", error);
-            }
-        };
-
-        fetchBeans();
-    }, []);
-
+const Beans: React.FC<Props> = ({ searchQuery, sortQuery, jellys }) => {
     if (jellys === null) {
         return <div>Loading...</div>;
     }

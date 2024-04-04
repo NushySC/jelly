@@ -1,16 +1,17 @@
 import React from "react";
-// import Search from "./components/Search";
+import Search from "./Search"; // Assuming Search component is located in the same directory
 
-interface Bean {
-  colorGroup: string;
+interface Props {
+  handleSearch: (query: string) => void; // Define the type for handleSearch function
+  handleSortChange: (sortQuery: string) => void; // Define the type for handleSortChange function
 }
 
-interface Props {}
-
-const Side = () => {
-  return <div className="side">
-          {/* <Search onSearch={handleSearch} onSortChange={handleSortChange} /> */}
-  </div>;
+const Side: React.FC<Props> = ({ handleSearch, handleSortChange }) => {
+  return (
+    <div className="side">
+      <Search onSearch={handleSearch} onSortChange={handleSortChange} />
+    </div>
+  );
 };
 
 export default Side;

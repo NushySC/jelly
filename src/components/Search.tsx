@@ -33,7 +33,7 @@ const Search: React.FC<SearchProps> = ({ onSearch, onSortChange }) => {
           value={query}
           onChange={handleChange}
           onKeyPress={handleKeyPress}
-          placeholder="Search products..."
+          placeholder="Search..."
         />
         <button className="search__btn" onClick={handleSearchClick}>
           Search
