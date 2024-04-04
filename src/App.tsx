@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./styles/App.scss";
+import Side from "./components/Side";
 import Beans from "./components/Beans";
 import { ReactComponent as CloseIcon } from "./img/close.svg";
-import Side from "./components/Side";
 
 interface BeanItem {
   beanId: number;

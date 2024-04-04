@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Sort from "./Sort";
 import { ReactComponent as SearchIcon } from "../img/search.svg";
+import Sort from "./Sort";
 
 interface SearchProps {
   onSearch: (query: string) => void;
@@ -33,7 +33,7 @@ const Search: React.FC<SearchProps> = ({ onSearch, onSortChange }) => {
           value={query}
           onChange={handleChange}
           onKeyPress={handleKeyPress}
-          placeholder="Search..."
+          placeholder="Search products..."
         />
         <button className="search__btn" onClick={handleSearchClick}>
           Search
