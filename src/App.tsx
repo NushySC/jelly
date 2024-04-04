@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./styles/App.scss";
 import { ReactComponent as CloseIcon } from "./img/close.svg";
-import Side from "./components/Side";
+import SideBar from "./components/SideBar";
 import Beans from "./components/Beans";
 
 interface BeanItem {
@@ -83,7 +83,7 @@ const App: React.FC = () => {
 
   return (
     <div className="app">
-      <Side
+      <SideBar
         handleSearch={handleSearch}
         handleSortChange={handleSortChange}
         uniqueColors={uniqueColors}

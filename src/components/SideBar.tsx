@@ -8,7 +8,7 @@ interface Props {
   handleColorGroupClick: (color: string) => void;
 }
 
-const Side: React.FC<Props> = ({
+const SideBar: React.FC<Props> = ({
   handleSearch,
   handleSortChange,
   uniqueColors,
@@ -34,4 +34,4 @@ const Side: React.FC<Props> = ({
   );
 };
 
-export default Side;
+export default SideBar;
