@@ -1,5 +1,5 @@
 import React from "react";
-import Search from "./Search";
+import Search from "./SearchComponent";
 
 interface Props {
   handleSearch: (query: string) => void;

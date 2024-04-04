@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ReactComponent as SearchIcon } from "../img/search.svg";
-import Sort from "./Sort";
+import Sort from "./SortComponent";
 
 interface SearchProps {
   onSearch: (query: string) => void;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./styles/App.scss";
 import { ReactComponent as CloseIcon } from "./img/close.svg";
 import SideBar from "./components/SideBar";
-import Beans from "./components/Beans";
+import Beans from "./components/Jellys";
 
 interface BeanItem {
   beanId: number;

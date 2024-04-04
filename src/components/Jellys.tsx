@@ -22,7 +22,7 @@ interface BeanItem {
 
 }
 
-const Beans: React.FC<Props> = ({ searchQuery, sortQuery, jellys }) => {
+const Jellys: React.FC<Props> = ({ searchQuery, sortQuery, jellys }) => {
     if (jellys === null) {
         return <div>Loading...</div>;
     }
@@ -49,4 +49,4 @@ const Beans: React.FC<Props> = ({ searchQuery, sortQuery, jellys }) => {
     );
 };
 
-export default Beans;
+export default Jellys;
