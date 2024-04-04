@@ -20,7 +20,8 @@ interface BeanItem {
 const App: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [sortQuery, setSortQuery] = useState<string>("");
-  const [jellys, setJellys] = useState<BeanItem[] | null>(null); // State for storing fetched data
+  const [jellys, setJellys] = useState<BeanItem[] | null>(null);
+  const [colors, setColors] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchBeans = async () => {
@@ -65,35 +66,42 @@ const App: React.FC = () => {
     return <div>Loading...</div>;
   }
 
-  // console.log(jellys[1].flavorName)
-  const filteredProducts = jellys.filter((jelly) =>
-    jelly.flavorName.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const allColors = jellys.flatMap((jelly) => jelly.colorGroup);
+  const uniqueColors = Array.from(new Set(allColors));
 
-  const lengthResults = filteredProducts.length;
+  const handleColorGroupClick = (color: string) => {
+    setColors(color);
+  };
+
+  const filteredJellys = colors
+    ? jellys.filter((jelly) => jelly.colorGroup.includes(colors))
+    : jellys;
+
+  const lengthResults = filteredJellys.length;
 
   return (
     <div className="app">
-      <Side handleSearch={handleSearch} handleSortChange={handleSortChange} />
+      <Side
+        handleSearch={handleSearch}
+        handleSortChange={handleSortChange}
+        uniqueColors={uniqueColors}
+        handleColorGroupClick={handleColorGroupClick}
+      />
       <div className="main">
         {searchQuery && (
-            <div className="results">
-              <p>
-                Your search on <span>{searchQuery}</span> has provided{" "}
-                {lengthResults} results
-              </p>
-              <button className="results__clear" onClick={clearQuery}>
-                Clear Search
-                <CloseIcon className="results__icon" />
-              </button>
-            </div>
+          <div className="results">
+            <p>
+              Your search on <span>{searchQuery}</span> has provided{" "}
+              {lengthResults} results
+            </p>
+            <button className="results__clear" onClick={clearQuery}>
+              Clear Search
+              <CloseIcon className="results__icon" />
+            </button>
+          </div>
         )}
         <div className="beans">
-          <Beans
-            searchQuery={searchQuery}
-            sortQuery={sortQuery}
-            jellys={jellys}
-          />
+          <Beans searchQuery={searchQuery} sortQuery={sortQuery} jellys={filteredJellys} />
         </div>
       </div>
     </div>

@@ -1,15 +1,35 @@
 import React from "react";
-import Search from "./Search"; // Assuming Search component is located in the same directory
+import Search from "./Search";
 
 interface Props {
-  handleSearch: (query: string) => void; // Define the type for handleSearch function
-  handleSortChange: (sortQuery: string) => void; // Define the type for handleSortChange function
+  handleSearch: (query: string) => void;
+  handleSortChange: (sortQuery: string) => void;
+  uniqueColors: string[];
+  handleColorGroupClick: (color: string) => void;
 }
 
-const Side: React.FC<Props> = ({ handleSearch, handleSortChange }) => {
+const Side: React.FC<Props> = ({
+  handleSearch,
+  handleSortChange,
+  uniqueColors,
+  handleColorGroupClick,
+}) => {
   return (
     <div className="side">
       <Search onSearch={handleSearch} onSortChange={handleSortChange} />
+
+      <div className="tags">
+        <p className="tags__p">Sort by color</p>
+        {uniqueColors.map((color) => (
+          <span
+            key={color}
+            className="tag"
+            onClick={() => handleColorGroupClick(color)}
+          >
+            {color}
+          </span>
+        ))}
+      </div>
     </div>
   );
 };
